@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "12cb8fff-a0bb-40d1-ba41-43b52ffe9ce0",
+		"name": "Spotify",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23583089"
+	},
+	"item": [
+		{
+			"name": "My playlists",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "tokenType",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "BQDEC-J0Z0GFnk6-c9eDRbYfSx5JcY1lYebrWtSepspC9ZwmZYu9YB8B002C-ItepuSsuU3YVNyNPUrGhzZkH3mC-2q3Vn2qWx6lB9gJbIIE7I3P_U46pToXAQ2OQokdbDTu8N0F1ldK8fGIiUPr2WtP9758qykw0CP7MYMipdwYShDcZkZc7ErAP15dofg5GJCRxHUsUOwdtAkl",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.spotify.com/v1/me/playlists",
+					"protocol": "https",
+					"host": [
+						"api",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"v1",
+						"me",
+						"playlists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tracks from playlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "tokenType",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "BQDEC-J0Z0GFnk6-c9eDRbYfSx5JcY1lYebrWtSepspC9ZwmZYu9YB8B002C-ItepuSsuU3YVNyNPUrGhzZkH3mC-2q3Vn2qWx6lB9gJbIIE7I3P_U46pToXAQ2OQokdbDTu8N0F1ldK8fGIiUPr2WtP9758qykw0CP7MYMipdwYShDcZkZc7ErAP15dofg5GJCRxHUsUOwdtAkl",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.spotify.com/v1/playlists/0bPGo05dIjJ2RKSCP1e5N7/tracks",
+					"protocol": "https",
+					"host": [
+						"api",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"v1",
+						"playlists",
+						"0bPGo05dIjJ2RKSCP1e5N7",
+						"tracks"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
